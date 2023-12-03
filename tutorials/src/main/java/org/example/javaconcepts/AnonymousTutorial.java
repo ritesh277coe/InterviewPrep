@@ -1,6 +1,6 @@
 package org.example.javaconcepts;
 
-import org.example.helpercode.Customer;
+import org.example.helpercode.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -22,11 +22,9 @@ public class AnonymousTutorial {
                 }
             };
 
-
             System.out.println("Normal Customer class " + customer.toString());
             System.out.println("Anonymous Customer class " + anonymousCustomer.toString());
         }
-
 
         //Anonymous can be avoided using the functional interface
         {

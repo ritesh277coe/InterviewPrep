@@ -1,5 +1,7 @@
 package org.example.javaconcepts.collectiontutorial;
 
+import org.example.helpercode.Person;
+
 import java.util.*;
 
 public class DemoList {
@@ -58,6 +60,14 @@ public class DemoList {
      * Other apis to remember are addAll(collection), removerAll(collection), replaceAll, size(), isEmpty(), contains()
      */
     public void demoList() {
+        {
+            ArrayList<Person> persons = new ArrayList<>();
+            persons.add( new Person(1, "a", "b", "a@b", "m", 2));
+            persons.add(new Person(2, "a", "b", "a@b", "m", 2));
+
+            Person[] arr = persons.toArray(new Person[0]);
+            ArrayList<Person> clonePersons = (ArrayList<Person>)persons.clone();
+        }
         List<Test> arrayList = new ArrayList<Test>();
         //LinkedList, PriorityQueue, Arrays, Set, Collection, List, SortedSet, HashSet, TreeSet, Collections.singleton(Object), Collections.EMPTY_SET, Map. HashMap, TreeMap
 
@@ -84,5 +94,10 @@ public class DemoList {
         //Iterator
         iterateList(newArrList);
 
+    }
+
+    public static void main(String[] args) {
+        DemoList demoList = new DemoList();
+        demoList.demoList();
     }
 }

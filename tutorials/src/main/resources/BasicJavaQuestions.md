@@ -80,6 +80,9 @@
             Arrays.sort(customClasses, customClassComparator) and it will sort using the param someString, and it will get precedence 
             upon the comparable interface that is implemented by default in the class.
 
+            The functional way will eliminate the use of above interfaces, as .sort can use lamba function:
+            Arrays.sort(consumers, (Consumer a, Consumer b) -> {return a.compare(b);})
+
 ### == vs .equals
     == just compares value stored by variable
     equals object specific implementation. But default Object class has implementation as: a == b
@@ -118,7 +121,7 @@
 
 ### Association HASA relation
     Weak association is Aggregation. Car HASA driver, But both object can coexit independently.
-    String association is Composition, Car HASA Engine, and car cannot exist without engine.
+    Strong association is Composition, Car HASA Engine, and car cannot exist without engine.
 
 ### Return type of overridden function in child can be different from parent function.
     The return type of child function can be parent class of the return type of the parent function
@@ -127,10 +130,11 @@
 ### Exception hierarchy
     Throwable:
         Exception:
-            Checked: (Exception know at compile time)
+            Checked: (Exception that compiler forces you to handle at compile time)
                 ClasNotFoundException
                 IOException
                 SqlException
+                FileNotFoundException
             UnChecked: (Exception only known at runtime)
                 NullPointerException
                 IndexOutOfBoundException
@@ -142,6 +146,7 @@
 
 ### From PODs to String
     String.valueOf(int i), String.valueOf(long)
+    Integer.valueOf(String s)
 
 ### Deque interface
     Concrete class is ArrayDeque()
@@ -159,3 +164,36 @@
     
     Sort collections:
         list.sort(Comparator<? super T> c)
+
+### Constructors
+    No default constructor when user defines class constructors. If user need default (no arg) constructor, it has to be defined like other constructors.
+    Make constructor "Private" if user NEVER wants instance of class.
+
+### Enums
+    way to create: public enum DayaofWeek {SUNDAY,MONDAY,TUESDAY....SATURDAY;} watch comma separated and ends with semi colon
+    Another when enum intialized with values public enum DayaofWeek {SUNDAY(1),MONDAY(2),TUESDAY(3)....SATURDAY(7); public final int dayOftheWeek;  DayaofWeek(int dayOftheWeek) {this.dayOftheWeek = dayOfTheWeek;}
+    All enums are extended from java.lang.enums so you get some extra functions
+
+### Final
+    variable:   Once intialized, value of the variable cannot be altered. Ex: public final MyClass class1 = new MyClass(); class1 = new MyClass(); second time will throw an error
+    method:     derived class CANNOT override implementation of method of parent class
+    class:      class CANNOT be extended
+
+### equals() vs ==
+    == literally compares the value stored for the variable: String a = new String("test"); String b = new String("test"); a == b is false as a and b stores address of objects which are differnet
+    But String a = "test"; String b = "test" and a == b is true. As a and b has same memory address from string pool
+    To compare objects, user ALWAYS need to implement boolean equals(Object obj)
+
+### Garbage Collection
+    void func() {
+        Person p = new Person(); //p will be out of scope after func stack so it will unreachable memory in heap
+    }
+    void func2(Person p1) {
+        Person p = new Person();
+        p = p1; // heap memory earlier referrenced by p will be unreachable
+    }
+    Garbage collector run sweep and mark the reachable memory. All the unreachable memory objects are returned to heap.
+    heap sections are divided in young and old generation heap sections. A new memory always belongs to young generation 
+    and mark/sweep happens frequently on this section. After various runs, Garbage colector identifies 
+    memories that in young generation for longer duration, and those are then moved to old generation.
+    Mark/sweep runs very less on old generation memory.

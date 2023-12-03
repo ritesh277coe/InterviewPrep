@@ -1,8 +1,11 @@
 package org.example.javaconcepts;
 
+import org.example.helpercode.Person;
+
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class ArrayTutorial {
 
@@ -33,6 +36,7 @@ public class ArrayTutorial {
         System.out.println();
         Integer[] arr = l.toArray(new Integer[1]);
         Arrays.sort(arr);
+
         for (Integer x : arr) {
             System.out.println(x + " ");
         }
@@ -41,10 +45,27 @@ public class ArrayTutorial {
         for (Integer x : arr) {
             System.out.println(x + " ");
         }
-
         System.out.println();
-
         l.sort(Comparator.reverseOrder());
+
+        String[] names = {"name1", "name2", "name3", "name4", "name5"};
+        Arrays.stream(names)
+                .filter(s -> {return s.endsWith("3");})
+                .forEach(System.out::println);
+
+        int[] arr1 = {1, 2, 3, 4, 5};
+        Arrays.stream(arr1)
+                .filter(i -> {return (i > 3);})
+                .forEach(System.out::println);
+
+        Person[] people = {
+                new Person(1, "a", "A", "a@b", "m", 1),
+                new Person(2, "b", "B", "a@b", "f", 2),
+        };
+
+        Person[] peopleArr = new Person[10];
+        peopleArr[0] = new Person(1, "a", "A", "a@b", "m", 1);
+        peopleArr[1] = new Person(2, "b", "A", "a@b", "m", 1);
 
     }
 }
