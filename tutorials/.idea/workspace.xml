@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="81463670-3e6b-4451-b8c3-3df6ae903fcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/helpercode/LoadJsonFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/helpercode/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/helpercode/PersonDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/Callbacks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/ConsumerEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/FunctionEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/PredicateEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/Readme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/functionalprogramming/SupplierEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/generics/GenericsEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/streams/StreamEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/threadEx/CallableThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/threadEx/CompleteAbleFutureEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/threadEx/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/threadEx/RunnableTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/threadEx/SimpleRunnableThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jsonfiles/cars.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jsonfiles/people.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/AnonymousTutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/AnonymousTutorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/ArrayTutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/ArrayTutorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/TwoDArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/TwoDArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/DemoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/DemoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/BasicJavaQuestions.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BasicJavaQuestions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CollectionInterfaceCheatSheat.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/collectionsExplained/CollectionInterfaceCheatSheat.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Concepts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/IterableInterface.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/collectionsExplained/IterableInterface.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ListInterface" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/collectionsExplained/ListInterface" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapInterface" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/collectionsExplained/MapInterface" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BasicJavaQuestions.md" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BasicJavaQuestions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CollectionInterfaceCheatSheat.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Concepts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/IterableInterface.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ListInterface" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MapInterface" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ritesh/tutorial/basic/java/concepts/TwoDArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/helpercode/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/helpercode/Pair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/AnonymousTutorial$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/AnonymousTutorial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/ArrayTutorial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/ImmutableString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/collectiontutorial/BasicCollectionExamples.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/collectiontutorial/DemoList$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/collectiontutorial/DemoList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/collectiontutorial/DemoQueue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/collectiontutorial/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/enums/EnumTutorial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/enums/JavaCourse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/javaconcepts/enums/JavaCoursesWithInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/AddTwoNumbers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/BuySellStock121.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/FindWord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/HouseRobber198.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/ListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/LongestPalindrome.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/MaxSubArray53.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/MergeSortedArray88.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/MergeSortedLinkedList21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/ReverseInteger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/RotateBits.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/ThreeSum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/TwoSum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/leetcode/easy/ValidAnagram242.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2Yr7xq5LK5bMbRjXhVyuGXFxY2R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pooja\InterviewPrep\tutorials\src\main\resources\collectionsExplained" />
+      <recent name="C:\Users\pooja\InterviewPrep\tutorials\src\main\resources\helperfiles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in tutorials">
+    <configuration name="CallableThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.javaconcepts.threadEx.CallableThread" />
+      <module name="tutorials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.javaconcepts.threadEx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompleteAbleFutureEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.javaconcepts.threadEx.CompleteAbleFutureEx" />
+      <module name="tutorials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.javaconcepts.threadEx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.javaconcepts.collectiontutorial.DemoList" />
+      <module name="tutorials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.javaconcepts.collectiontutorial.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleThreadEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.javaconcepts.threadEx.SimpleThreadEx" />
+      <module name="tutorials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.javaconcepts.threadEx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.javaconcepts.streams.StreamEx" />
+      <module name="tutorials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.javaconcepts.streams.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in tutorials" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="tutorials" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StreamEx" />
+        <item itemvalue="Application.CompleteAbleFutureEx" />
+        <item itemvalue="Application.CallableThread" />
+        <item itemvalue="Application.SimpleThreadEx" />
+        <item itemvalue="Application.DemoList" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81463670-3e6b-4451-b8c3-3df6ae903fcd" name="Changes" comment="" />
+      <created>1701272098145</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701272098145</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/javaconcepts/AnonymousTutorial.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/helpercode/Customer.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/helpercode/Customer.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/DemoList.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/javaconcepts/collectiontutorial/DemoList.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
