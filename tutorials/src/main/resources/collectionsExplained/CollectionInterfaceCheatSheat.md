@@ -1,18 +1,19 @@
 ###Concrete Collection classes
 
 ###Collection<E> extends Iterable<E> {
+
     int size();
     boolean isEmpty();
-    Iterator<E> iterator();
-    Object[] toArray();  <T> T[] toArray(T[] a);
-    boolean add(E e);  boolean addAll(Collection<? extends E> c);
-    boolean remove(Object o);  boolean removeAll(Collection<?> c);  default boolean removeIf(Predicate<? super E> filter);
-    boolean contains(Object o);  boolean containsAll(Collection<?> c);
-
-    boolean retainAll(Collection<?> c);
-    void clear();
     boolean equals(Object o);
     int hashCode();
+
+    Object[] toArray();  <T> T[] toArray(T[] a);
+    boolean add(E e);  boolean addAll(Collection<? extends E> c);
+    boolean remove(Object o);  boolean removeAll(Collection<?> c);  
+    default boolean removeIf(Predicate<? super E> filter); void clear();
+    boolean contains(Object o);  boolean containsAll(Collection<?> c); boolean retainAll(Collection<?> c);
+
+    Iterator<E> iterator();
 
     @Override
     default Spliterator<E> spliterator();
@@ -21,6 +22,7 @@
 }
 
 ###List<E> extends Collection<E> {
+
     E get(int index)
     boolean add(int index, E object);  boolean set(int index, E object);
     E remove(int index);
@@ -29,13 +31,17 @@
 ###Concrete classes for List: ArrayList, LinkedList
 
 ###Queue<E> extends Collection<E> {
-    E poll();
-    E peek();
+
+    E poll(); //Retrieves and removes the head of this queue, or returns null if this queue is empty.
+    E peek(); //Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
 }
 
-###Concrete classes for Queue: PriorityQueue
+###Concrete classes for Queue: 
+    
+    PriorityQueue, LinkedList, ArrayQueue, ArrayBlockingQueue, DelayQueue, LinkedBlockingQueue, PriorityBlockingQueue
 
 ###Deque<E> extends Collection<E> {
+
     void addFirst(E obj); void addLast(E obj);
     E removeFirst(E obj); E removeLast(E obj);
     E pollFirst(); E pollLast();
@@ -45,10 +51,12 @@
 ###Concrete classes for Deque: ArrayDeque, LinkedList
 
 ###public interface Set<E> extends Collection<E> {
-    //ALL collection function but no new function
+
+    //ALL collection function and no new function
 }
 
 ###public interface SortedSet<E> extends Set<E> {
+
     Return the comparator used to sort
     Comparator<? super E> comparator(); 
 }
@@ -63,12 +71,12 @@ public interface Map<K,V> {
     boolean containsValue(Object value);
     V get(Object key);
     V put(K key, V value);
-    V remove(Object key);
     void putAll(Map<? extends K, ? extends V> m);
+    V remove(Object key);
     void clear();
     Set<K> keySet();
-    Collection<V> values();
     Set<Map.Entry<K, V>> entrySet();
+    Collection<V> values();
 
     interface Entry<K,V> {
         K getKey();

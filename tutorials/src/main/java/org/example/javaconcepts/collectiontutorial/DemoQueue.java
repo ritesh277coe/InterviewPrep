@@ -1,14 +1,26 @@
 package org.example.javaconcepts.collectiontutorial;
 
-import java.util.Queue;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class DemoQueue {
 
     public void demoQueue() {
-//        Queue<Test> arrayList = new Queue<Test>();
-//
+        Queue<Test> queue = new PriorityQueue<Test>();
+        List<Test> list = Arrays.asList(
+                new Test(1, "one"),
+                new Test(2, "Two")
+        );
+        queue.addAll(list);
+        Test test = null;
+        test = queue.peek();
+        while ((test = queue.poll()) != null) {
+            System.out.println(test.toString());
+        }
+        Set<Test> set = new HashSet<>();
+        SortedSet<Test> s = new TreeSet<Test>((t1, t2)->{return (t1==t2)?0:(t1.a > t2.a)?1:-1;});
+
 //        //Add Element
 //        populateArrayListNormalWay(arrayList);
 //        //Remove Element

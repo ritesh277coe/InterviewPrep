@@ -58,6 +58,7 @@ public class DemoList {
      * iterate,
      * toArray
      * Other apis to remember are addAll(collection), removerAll(collection), replaceAll, size(), isEmpty(), contains()
+     * Concrete classes: //LinkedList, PriorityQueue, Arrays, Set, Collection, List, SortedSet, HashSet, TreeSet, Collections.singleton(Object), Collections.EMPTY_SET, Map. HashMap, TreeMap
      */
     public void demoList() {
         {
@@ -66,10 +67,10 @@ public class DemoList {
             persons.add(new Person(2, "a", "b", "a@b", "m", 2));
 
             Person[] arr = persons.toArray(new Person[0]);
+
             ArrayList<Person> clonePersons = (ArrayList<Person>)persons.clone();
         }
         List<Test> arrayList = new ArrayList<Test>();
-        //LinkedList, PriorityQueue, Arrays, Set, Collection, List, SortedSet, HashSet, TreeSet, Collections.singleton(Object), Collections.EMPTY_SET, Map. HashMap, TreeMap
 
         //Add Element
         populateArrayListNormalWay(arrayList);

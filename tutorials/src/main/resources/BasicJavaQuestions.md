@@ -24,6 +24,8 @@
 
 ### Does finally always execute?
     Yes except System.exit is called or crash happened in the code
+    finally will always execute even is the code has return in try block.
+    try {retur 5;} finally {return 10;} so the code will return 10;
 
 ### What functions are in Object class?
     clone(), hashCode(), toString(), equals(), getClass(), finalize(), notify(), notifyAll(), wait(),.....
@@ -197,3 +199,45 @@
     and mark/sweep happens frequently on this section. After various runs, Garbage colector identifies 
     memories that in young generation for longer duration, and those are then moved to old generation.
     Mark/sweep runs very less on old generation memory.
+
+### Abstract class vs interface
+    //abstract class 
+    public abstract class abs {
+    }
+    //interface
+    public interface intf {
+    }
+    
+    1) abstract class act as base class where some functions has base implementation and some defined as abstact:
+    public abstract int sum(int a, int b} so child class have to override.
+    In interface, all functions have to overriden
+    2) abstract class can have variables, but interface variables are static final i.e is constant
+    3) Child can implement multiple interface, but can only extend 1 base class
+
+### Synchronized vs Reentrant Lock
+    public synchronized void syncFunc();
+    synchronized (this) {
+    }
+    or some object MyObject myObject;
+    synchronized (myObject) {
+    }
+    //Exclusive locks give lot of flexibility when needed.
+    Rentrant lock = new RentrantLock();
+    try {
+        lock.lock();
+    } finally {
+        lock.unlock();
+    }
+    
+    RentrantReadWrite lock = new RentrantReadWrite();
+    lock.readLock().lock() //lock.writeLock().lock()
+    lock.readLock().unlock() //lock.writeLock().unlock();
+
+    Semaphore s = new Semaphore(5);
+    boolean permit = s.tryAcquire(1, TimeUnit.SECONDS);
+    if (permit) s.release();
+    OR
+    s.acquire();
+    s.release();
+
+    
