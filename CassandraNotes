@@ -1,3 +1,18 @@
+Cassandra Basics:
+    Multiple Nodes spread across CONSISTENT HASH. Each Node get assigned multiple vnode -> multiple token(hash range). This distributes load consistently across all nodes.
+    Cassandra query has only one main i.e FASTER QUery, It does not care about NORMALIZATION. (Anyone who has worked in relational db paradigm, they know that when you need to make query faster , they break normalization and denormailze the data :) )
+Primary key = ((c1, c2), c3, c4)
+    Partition key (c1, c2) (assigned during create table does all the magic) , as it distribute the partiions of table across different nodes.
+    Cluster Key (c3, c4) for faster query processing as its all sorted and binary search helps.
+Cassandra uses write superfast read slower then BTee because it use IMMUTABLE LSM tree (Log structred merge tree) 
+    Any write is entered in memtable + write ahead log which makes it fast, because Cassandra dumps memtable into sorted SS tables and further merge SS tables into bigger SS tables. SS tables are IMMUTABLE i.e any update is another row. And this LOG struture make it write friendly as logs are always apended.  (memtables -> IMMUTABLE SS Tables -> IMMUTABLE Bigger SS tables). It aslo has Bloom filters per tables for faster decison making during reads
+    Any Read just find the use partition hash and lands on the correct node.
+    So query should always have 
+    Select * from T 
+    where T.C1 = "something" AND T.C2 = "else" //Enable to find correct partition
+    where T.C3 >=< "somethinhg" //Use Cluster key sort
+
+
 Cassandra Tutorials:
     https://www.baeldung.com/cassandra-keys
     https://cassandra.apache.org/doc/stable/cassandra/data_modeling/intro.html
