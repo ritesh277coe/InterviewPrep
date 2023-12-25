@@ -8,7 +8,8 @@ After this user is free to alter configuration for custom scenario
 
 Most common annotation for spring based application:
 
-@Component: Tell spring to manage the lifecycle of the bean.
+@Component: 
+    Tell spring to manage the lifecycle of the bean.
 
 {
     @Service: Belongs to service layer that implements business logic
@@ -17,15 +18,21 @@ Most common annotation for spring based application:
 }
 
 @Autowired:
-    Can we applied on constructor/field/setter method
+    Can be applied on constructor/field/setter method
+    @Primary on class
+    @Qualifier on top of the dependency
+    
+    When enabling dependency injection, if bean initializer get confused, then we can use @Primary on the class level so that that calss becomes primary candidate in case of confusion, or we can use @Qualifier("nameofthebean") so that autowire know which bean to call to resolve dependency
 
 @Value:
     Helps in injecting external properties (Property file) into your bean.
     Can be use when class is Component/Service/Controller/Repository bean.
 
+
+@ComponentScan:
+
 @Configuration:
     Does not implement business logic rather implements code for setup/initialization of application
-@ComponentScan:
 
 @Bean
     create a spring bean by calling a function that enable user to provide N args to instantiate
@@ -44,6 +51,7 @@ Most common annotation for spring based application:
         much we stop all above ways to create objects that are created using
         Component/Repository/Service/Controller
         All these above mentioned creates Beans using TYPE, but @Bean lets user create a bean using function signature
+        @Bean("Qualifier" = "beanname", "initMethod" = "init", "destroyMethod" = "destroy") So bean can access with name "beanname", and after bean creation, inot method will be called
 
 @Transactional:
     //Need example
@@ -60,11 +68,15 @@ Most common annotation for spring based application:
         Orders getOrders(@PathVariable int id){};
     }
 
-@RestController
-    Best fro rest api classes
-
 @SpringBootApplication
     Put it on main all code becomes spring beans
-    It is a combination as @Configuration/@EnableAutoConfiguration/@ComponentScan
+    It is a combination as 
+    @SpringBootConfiguration
+    @EnableAutoConfiguration
+    @ComponentScan
 
-
+@RestController For implementing Rest elated mapping
+@Service: For implementing service logic
+@Repository: For implementing DAO
+    StereoType annotation derived from Componenet
+    Best for rest api classes
