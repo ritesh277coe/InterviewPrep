@@ -1,0 +1,18 @@
+Cassandra Tutorials:
+    https://www.baeldung.com/cassandra-keys
+    https://cassandra.apache.org/doc/stable/cassandra/data_modeling/intro.html
+    https://cassandra.apache.org/doc/latest/
+    https://docs.datastax.com/en/cql-oss/3.3/cql/cql_reference/cqlSelect.html
+    https://www.baeldung.com/cassandra-replication-partitioning
+    https://www.youtube.com/watch?v=91ZwkO07xHU&list=PLalrWAGybpB-L1PGA-NfFu2uiWHEsdscD&index=9&ab_channel=jumpstartCS
+    https://www.youtube.com/watch?v=fcohNYJ1FAI&t=1828s&ab_channel=DataStaxDevelopers
+    https://www.baeldung.com/cassandra-query-cheat-sheet
+    https://www.geeksforgeeks.org/useful-cql-query-in-cassandra/
+    https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/architecture/archSnitchesAbout.html
+    https://javahowtos.com/guides/446-create-cassandra-cluster-with-docker-compose.html
+    https://www.datastax.com/blog/request-tracing-cassandra-12   (V Important)
+    https://www.youtube.com/watch?v=yahycROCCOg&t=2317s&ab_channel=DataStaxDevelopers  (Test Questions)
+
+Some useful github:
+    (Related Video: https://www.youtube.com/watch?v=nBoHQOcwPS4&ab_channel=DataStaxDevelopers)
+    https://github.com/datastaxdevs/workshop-spring-data-cassandra/blob/ZEND/todobackend-springdata/src/main/java/com/datastax/workshop/todo/TodoRestController.java
