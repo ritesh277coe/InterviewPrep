@@ -27,6 +27,19 @@ Most common annotation for spring based application:
 @Value:
     Helps in injecting external properties (Property file) into your bean.
     Can be use when class is Component/Service/Controller/Repository bean.
+    @Value("Testvalue")   ///Assigns default value to the variable
+    String val;   
+    @Value(${mail.host})  //application.properties file will be read and value will be assignedto mailHost
+    String mailHost; 
+    @Value(${HOME}) //will read environment
+
+@PropertySource / @PropertySources
+    By default, application is looked for values, but if application wants different sources
+    then
+@PropertySource({
+    @PropertySource("a.properties")
+    @PropertySource("b.properties")
+    })
 
 
 @ComponentScan:
@@ -75,8 +88,16 @@ Most common annotation for spring based application:
     @EnableAutoConfiguration
     @ComponentScan
 
-@RestController For implementing Rest elated mapping
+@Controller For implementing Rest elated mapping
 @Service: For implementing service logic
 @Repository: For implementing DAO
     StereoType annotation derived from Componenet
     Best for rest api classes
+
+@Lazy
+    Create bean when needed. Its bad as any issues are obsured and are furnished during runtime
+    Can be used with @Bean or @Component or @Configuration
+
+@Scope ("value"="prototype")
+    Singleton/Prototype/request/session/websocket/application
+    Default scope is singleton
