@@ -81,6 +81,24 @@ Most common annotation for spring based application:
         Orders getOrders(@PathVariable int id){};
     }
 
+//******//
+Below example of Post Mapping + @RequestBody for post data + @RequestParam("key") + @PathVariable
+@PostMapping("/person", consumes =  MediaType.APPLICATION_JSON_VALUE, produces =  MediaType.APPLICATION_JSON_VALUE)
+@ResponseStatus(value = HttpStatus.CREATED)
+public ResponseEntity<Person> zello(@RequestBody Person p) {
+	return new ResponseEntity<>(p, HttpStatus.CREATED);
+}
+
+@GetMapping("/json/{str1}/{str2}")
+public GreetResponse sendJson(@PathVariable("str1") String s1, @PathVariable("str2") String s2) {
+	return new GreetResponse(s1+s2, new Person("Ritesh", 42));
+}
+
+@GetMapping("/custom", produces = MediaType.APPLICATION_JSON_VALUE)
+public String zello(@RequestParam("k") String k, @RequestParam("v")String v) {
+	return k+v;
+}
+
 @SpringBootApplication
     Put it on main all code becomes spring beans
     It is a combination as 
