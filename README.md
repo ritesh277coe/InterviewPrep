@@ -15,6 +15,7 @@ DataEngineer Interview Prep: (Has interview questions related to different techn
   https://github.com/OBenner/data-engineering-interview-questions/blob/master/content/flink.md
 
 
-https://github.com/SanDiegoMachineLearning/bookclub:
-  https://github.com/SanDiegoMachineLearning/bookclub/blob/master/designing-data-intensive-apps.md
+Video lectures on data intensive application book:</br>
+  https://github.com/SanDiegoMachineLearning/bookclub:</br>
+  https://github.com/SanDiegoMachineLearning/bookclub/blob/master/designing-data-intensive-apps.md</br>
 
