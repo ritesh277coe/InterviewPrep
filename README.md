@@ -18,4 +18,5 @@ DataEngineer Interview Prep: (Has interview questions related to different techn
 Video lectures on data intensive application book:</br>
   https://github.com/SanDiegoMachineLearning/bookclub:</br>
   https://github.com/SanDiegoMachineLearning/bookclub/blob/master/designing-data-intensive-apps.md</br>
+  https://www.youtube.com/playlist?list=PLmp4AHm0u1g0Adn8HwWIe-G_xTn_jqOvf </br>
 
