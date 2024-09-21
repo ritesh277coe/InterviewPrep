@@ -1,0 +1,9 @@
+https://joekarlsson.com/2020/04/mongodb-schema-design-best-practices/
+https://www.youtube.com/watch?v=leNCfU5SYR8
+https://github.com/Java-Techie-jt/springboot-mongo-atlas/tree/main/src
+
+https://www.youtube.com/watch?v=qVNOw9TWwxo
+
+
+standard model/repository/service/controller arch
+but model has document and repository interface implements MongoRepository<Task,String>

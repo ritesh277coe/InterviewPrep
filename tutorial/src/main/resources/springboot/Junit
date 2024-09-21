@@ -1,0 +1,9 @@
+https://www.guru99.com/junit-annotations-api.html
+@Test – to identify the actual test case
+@Before – to execute some statement before each test case
+@After – to execute some statement after each test case
+@Ignores – to ignore some statement during execution of test
+@BeforeClass – to execute some statement before all the test cases
+@AfterClass – to execute some statement after all the test cases
+@Test(timeout=5000)
+@RepeatedTest(6)

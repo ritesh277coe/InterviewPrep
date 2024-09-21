@@ -1,0 +1,15 @@
+###
+Dependency
+spring-cloud-function-adapter-aws
+aws-lambda-java-events
+aws-lambda-java-core
+
+Youtube: https://www.youtube.com/watch?v=6A9pqr4qQMo
+github: https://github.com/Java-Techie-jt/springboot-aws-lambda/blob/master/src/main/java/com/javatechie/aws/lambda/SpringbootAwsLambdaApplication.java
+
+To generate lightweight jar: Some pom plugin
+
+public class OrderHandler extends SpringBootRequestHandler<String, Object> {
+}
+
+https://www.youtube.com/watch?v=btfnLVflOuc

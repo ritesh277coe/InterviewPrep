@@ -1,0 +1,16 @@
+https://developer.confluent.io/courses/architecture/guarantees/
+https://learn.conduktor.io/kafka/kafka-advanced-concepts/
+Durability Guarantee
+
+producer acks = 0 ,1 (written to leader) ALL(written to all )
+min.insync.replicas = The topic level configuration tells the broker to not allow an event to be written to a
+ topic unless there are N replicas in the ISR.
+
+Replication = 3, ack = all and min.insync.replicas = 2.....Will guarantee best case scenario with durability + latency
+because ack has to be received from one of the replica other than leader to send ack bck to producer.
+In case of leader failure, other node with latest data will take over.
+
+The whole system will not work if 2 brokers are down and will raise exception NotEnoughReplicasException.
+
+Ordering guarantee:
+enable.idempotence=true

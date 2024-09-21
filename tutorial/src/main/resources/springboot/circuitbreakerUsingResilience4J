@@ -1,0 +1,54 @@
+https://github.com/Java-Techie-jt/springboot-resilience4j/blob/main/user-service/src/main/resources/application.yml
+https://www.youtube.com/watch?v=b6R4dElDtRc
+
+States: closed (working)
+        Half open (semi working)
+        Open (Not working)
+
+packages needed actuator/aop/resilience4j-spring-boot2
+
+
+How to enable in code:
+    @GetMapping("/displayOrders")
+    @CircuitBreaker(name =USER_SERVICE,fallbackMethod = "getAllAvailableProducts") //enable circuitbreaker
+    @Retry(name = USER_SERVICE,fallbackMethod = "getAllAvailableProducts")      //enable retry
+    public List<OrderDTO> displayOrders(@RequestParam("category") String category) {
+        String url = category == null ? BASEURL : BASEURL + "/" + category;
+        System.out.println("retry method called "+attempt++ +" times "+" at "+new Date());
+        return restTemplate.getForObject(url, ArrayList.class);
+    }
+
+IN properties file enable actuator configs
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+
+  retry:
+    instances:
+      userService:
+        maxRetryAttempts: 5
+        waitDuration: 10s

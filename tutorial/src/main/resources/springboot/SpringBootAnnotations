@@ -1,0 +1,213 @@
+(https://www.youtube.com/watch?v=AXZkhKTbbWc)
+https://www.youtube.com/watch?v=htyq-mER0AE&t=12s
+https://github.com/Java-Techie-jt/annotations-cheatsheet
+
+Spring boot make it easy to create Spring based application that are production grade and can run.
+
+Spring was mainly for dependency inversion/IOC, but now it has all sort of support for almost everything that
+programmer needs. That is what it makes it hard to configure Spring application to match the needs to programmer.
+
+SpringBoot gives a quick to start a complex spring based application which used common conventional wisdom over custom configuration.
+After this user is free to alter configuration for custom scenario
+
+Most common annotation for spring based application:
+
+@Component:
+    Tell spring to manage the lifecycle of the bean.
+
+{
+    @Service: Belongs to service layer that implements business logic
+    @Controller: Web request handler
+    @Repository: Class that interact with DB and performs DB crud operation
+}
+
+@Autowired:
+    Can be applied on constructor/field/setter method (constructor is best way as it tells dependency explicitly and can help in writing good testcases)
+    @Primary on class
+    @Qualifier on top of the dependency
+
+    When enabling dependency injection, if bean initializer get confused, then we can use @Primary on the class level so that that class becomes primary candidate in case of confusion, or we can use @Qualifier("nameOfThebean") so that @Autowire know which bean to call to resolve dependency
+
+@Value:
+    Helps in injecting external properties (Property file) into your bean.
+    Can be use when class is Component/Service/Controller/Repository bean.
+    @Value("Testvalue")   ///Assigns default value to the variable
+    String val;
+    @Value(${mail.host})  //application.properties file will be read and value will be assignedto mailHost
+    String mailHost;
+    @Value(${HOME}) //will read environment
+
+@PropertySource / @PropertySources
+    By default, application.properties is looked for values, but if application wants different sources
+    then
+@PropertySource({
+    @PropertySource("a.properties")
+    @PropertySource("b.properties")
+    })
+
+
+@ComponentScan:
+
+@Configuration:
+    Does not implement business logic rather implements code for setup/initialization of application
+
+@Bean
+    create a spring bean by calling a function that enable user to provide N args to instantiate
+    an object and then add into spring as bean.
+
+    So Ex:
+        @Configuration
+        public class MyConf {
+            @Bean
+            MyCustomObject createCustomObject(Arg...args) {
+                ...
+                return new MyCustomObject(args);
+            }
+        }
+        So Using above way to instantiate spring beans is an alternative way to create way, and pretty
+        much we stop all above ways to create objects that are created using
+        Component/Repository/Service/Controller
+        All these above mentioned creates Beans using TYPE, but @Bean lets user create a bean using function signature
+        @Bean("Qualifier" = "beanname", "initMethod" = "init", "destroyMethod" = "destroy") So bean can access with name "beanname", and after bean creation, inot method will be called
+
+@Transactional:
+    //Need example
+    Provide method
+
+@RequestMapping: Helps in routing web requests
+    @Controller
+    @RequestMapping("/orders")
+    public class OrderController {
+        @GetMapping             //PutMapping/PostMapping/DeleteMapping
+        Orders getOrders();
+
+        @GetMapping("/{id}")
+        Orders getOrders(@PathVariable int id){};
+    }
+
+
+
+//******//
+Below example of Post Mapping + @RequestBody for post data + @RequestParam("key") + @PathVariable
+@PostMapping("/person", consumes =  MediaType.APPLICATION_JSON_VALUE, produces =  MediaType.APPLICATION_JSON_VALUE)
+@ResponseStatus(value = HttpStatus.CREATED)
+public ResponseEntity<Person> zello(@RequestBody Person p) {
+	return new ResponseEntity<>(p, HttpStatus.CREATED);
+}
+
+@GetMapping("/json/{str1}/{str2}")
+public GreetResponse sendJson(@PathVariable("str1") String s1, @PathVariable("str2") String s2) {
+	return new GreetResponse(s1+s2, new Person("Ritesh", 42));
+}
+
+//sample url http://localhost:3000/custom?k=ritesh&v=singh
+@GetMapping("/custom", produces = MediaType.APPLICATION_JSON_VALUE)
+public String zello(@RequestParam("k") String k, @RequestParam("v")String v) {
+	return k+v;
+}
+
+@SpringBootApplication
+    Put it on main all code becomes spring beans
+    It is a combination as
+    @SpringBootConfiguration
+    @EnableAutoConfiguration
+    @ComponentScan
+
+@Controller For implementing Rest related mapping
+@Service: For implementing service logic
+@Repository: For implementing DAO
+    StereoType annotation derived from Component
+    Best for rest api classes
+
+@Lazy
+    Create bean when needed. Its bad as any issues are obscured and are furnished during runtime
+    Can be used with @Bean or @Component or @Configuration
+
+@Scope ("value"="prototype")
+    Singleton/Prototype/request/session/websocket/application
+    Default scope is singleton
+
+@ConfigurationProperties(prefix="mail")
+public class test {
+//load from properties file where prefix is mail
+}
+
+
+@Profile("stage")
+Add spring.profiles.active=stage
+add properties file application-stage.properties
+
+@RestControllerAdvice
+Public class GlobalExceptionalHandler {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity handler (Exception exception) {
+    }
+}
+
+}
+
+{
+//Annotation based configuration
+@Component
+@Autowired   //(Field, Constructor, set)
+@Qualifier to resolve conflict when initializing a loosely coupled dependency
+@Primary on top of class tell spring ioc container to give preference to this component when resolving autowire conflicts
+
+//Java based configuration
+@Configuration
+@PropertySource("classpath:mail.properties")  PropertySources Annotations//tell IOC container that its con
+@Bean(name = "xyz", initMethod="init", destroyMethod="destroy") by default bean name is method name//Java based configuration
+@Lazy can be used with bean/component/configuration (initialization at runtime and not on loadtime)
+
+@Scope (value = ConfigurableBeanFactory.SCOPE_SINGLETON, prototype, request/session/application/websocket for web aware app)
+@Value("${property.file}") //read value from application.properties / env
+
+//Stereotype
+@Service
+@Repository //
+@Controller  //Spring MVC controller ...Handles incoming Http Requests ...used along with @RequestMapping @ResponseBody
+
+Instead of above using @Controller+@ResponseBody --> use @RestController
+@RestController
+@RequestMapping(value = {"/test1", "/test2"} //so method can be accessed with /test1 and /test2
+        ,method = RequestMethod.Get
+        ,produce = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+        ,consumes = {})
+
+@PostMapping(value="/test"
+            , consumes = MediaType.APPLICATION_JSON_VALUE)
+@ResponseStatus(value = HttpStatus.CREATED)
+ResponseEntity<Book,>postHanlder(@RequestBody Someclass) {
+    ResponseEntity<>(book, HttpStatus.CREATED);
+    ResponsEntity.ok("good");
+}
+
+@PathVariable in url
+@RequestParam the arg passed in request url
+@RequestHeader
+
+@SpringBootConfiguration = {@Configuration, @EnableAutoConfiguration, @ComponentScan}
+
+
+
+@Entity
+@Table(name="testtable")
+public class TestTable {
+    @Id
+    @Column(name = "TestTableID")
+    @GeneratedValue
+    int id;
+
+    @Column(name = "col1")
+    int column1;
+
+}
+
+@OneToOne
+@OneToMany
+@ManyToOne
+@ManyToMany
+
+
+OTHER ANNOTATIONS:
+
