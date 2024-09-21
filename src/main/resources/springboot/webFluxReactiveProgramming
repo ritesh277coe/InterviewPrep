@@ -1,0 +1,24 @@
+Youtube:
+    https://www.youtube.com/watch?v=bXcFCgQsvAE&t=3008
+    https://www.youtube.com/watch?v=M3jNn3HMeWg (imp for concept understanding)
+GITHUB:
+    https://github.com/Java-Techie-jt/springboot-webflux-demo/
+
+
+In reactive Programming, Flux is the data type to use
+
+RestAPI:               HTTP Request --> Controller --> Service
+FunctionalEndpoints:   Router --> Handler
+
+At 1:25:33, it will tell how to integrate mongodb
+GITHUB:
+    https://github.com/Java-Techie-jt/spring-reactive-mongo-crud
+
+
+mono<T> and flux<T> are 2 data types
+mono return single object and flux returns multiple objects
+
+Its a pub sub model
+    subscriber -> subscribe() -> publisher -> Subscription() to subscriber
+    Then subscriber makes request() and publisher calls onnext() of subscriber multiple times to send data
+    Then publisher send calls onComplete
