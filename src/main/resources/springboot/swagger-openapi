@@ -6,6 +6,7 @@ Add dependency: (Not present at start.spring.io)
     1.2.32
 
 ###
+
 Add in application.properties:
     springdoc.swagger-ui.enabled=true
     springdoc.swagger-ui.path=/swagger-doc/swagger-ui.html

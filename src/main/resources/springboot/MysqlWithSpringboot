@@ -1,11 +1,13 @@
 ###
     Quick mysql+boot:  https://www.youtube.com/watch?v=voA01jXkXtk&list=PLVz2XdJiJQxw-jVLpBfVn2yqjvA1Ycceq&index=4
     Hibernate:  https://www.youtube.com/watch?v=7h93K98kSV8&list=PLVz2XdJiJQxw-jVLpBfVn2yqjvA1Ycceq&index=5
+
     Multiple servers at same time: (custom datasource, entitymanager, transaction manager)
-                    https://www.youtube.com/watch?v=LKxu7TY1gD8
-    JPA many-2-many : https://www.youtube.com/watch?v=jCYonZey5dY
+                        https://www.youtube.com/watch?v=LKxu7TY1gD8
+    JPA many-2-many:    https://www.youtube.com/watch?v=jCYonZey5dY
     JPA One2One:        https://www.youtube.com/watch?v=2fvUrpYG95w
-        OneToMany:
+
+    OneToMany:
     github:             https://github.com/Java-Techie-jt/JPA-ManyToMany/
                         https://github.com/Dev2ProdCoding/spring-data-jpa-mappings/
                         https://github.com/Java-Techie-jt/spring-data-jpa-one2many-join-example/

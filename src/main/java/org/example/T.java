@@ -319,6 +319,8 @@ public class T {
 
         Days d = Days.SUNDAY;
         System.out.println(d.SUNDAY.day);
+
+
         System.gc();
         String cs = rle("aaabbbccdd");
         String k = cs.substring(0, 0);

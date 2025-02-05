@@ -31,7 +31,6 @@ public class StreamEx {
 
     static void sum() {
         List<Integer> list = List.of(1, 2, 3, 4, 5);
-
         Optional<Integer> x = list.stream().min((a, b) -> a.compareTo(b));
 
         //Sum using reduce
@@ -46,9 +45,11 @@ public class StreamEx {
                 .reduce(Integer.MAX_VALUE,
                         (sum, i) -> {if (i < sum)sum = i;  return sum;});
         System.out.println(minV);
+
     }
     static void reverseString() {
         String str = "string";
+
         String reverse = Stream.of(str.split(""))
                 .reduce("", (sum, s) -> {return s+sum;} );
 
@@ -106,6 +107,8 @@ public class StreamEx {
                 .entrySet()
                 .stream()
                 .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue().size()));
+
+
 
         System.out.println("");
     }
@@ -185,10 +188,34 @@ public class StreamEx {
         groupByExample();
         findDuplicateAndItsCountByGroupBy();
 
+        class City {
+            String name;
+            Integer temp;
+
+            public City(String s, Integer temp) {
+                name = s;
+                this.temp = temp;
+            }
+        };
+
         String s = "1234";
         String x = "1234";
         String s1 = new String(x);
         List<Person> personList = LoadJsonFile.getPeople();
+
+        List<City> l = List.of(new City("delhi", 11),
+                new City("delhi", 12) );
+
+        Map<String, List<City>> m = l.stream().filter(c -> c.temp > 10)
+                        .collect(Collectors.groupingBy(c -> c.name));
+        Set<Map.Entry<String, List<City>>> e = m.entrySet();
+        for (Map.Entry<String, List<City>> entry: e) {
+            System.out.println(entry.getKey());
+            entry.getValue().stream().forEach(v -> System.out.println(v.temp));
+        }
+
+
+
 
         System.out.println(personList.stream().
                 filter(p -> {

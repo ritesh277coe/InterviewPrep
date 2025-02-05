@@ -9,7 +9,7 @@
 ### What is JIT compiler?
     Just in time compiler lets JRE decides at runtime (based upon profiling)which bytecode needs to be
     converte into machine code.
-    ///interesting:https://systemfailu.re/2023/12/25/hooking-java-methods-just-in-time/
+    interesting:https://systemfailu.re/2023/12/25/hooking-java-methods-just-in-time/
    
 ### What is marker interface?
     Cloneable and Serializeable are empty interface
@@ -28,20 +28,27 @@
     finally will always execute even is the code has return in try block.
     try {return 5;} finally {return 10;} so the code will return 10;
 
+### What is finalize keyword?
+    finalize() method releases system resources before the garbage collector runs for a specific object. JVM allows finalize() to be invoked only once per object.
+    public class Test{ @Override public void finalize() {super.finalize();}  Test t = new Test(); t.finalize();
+
 ### What functions are in Object class?
-    clone(), hashCode(), toString(), equals(), getClass(), finalize(), notify(), notifyAll(), wait(),.....
+    getClass(), toString(), clone(), hashCode(), equals(), finalize(), notify(), notifyAll(), wait(),.....
 
 ### Can you override private or static method in the java?
     No, but we can define functions in child class, but all those function will be resolved at compile time, and not run time. 
     Overriding happens at runtime.
 
-### How can you make class immutable
-    implement Clone interface
+### How can you make class immutable : Ex: String, LocalDate
+    https://salithachathuranga94.medium.com/implement-immutable-classes-with-java-df5b5b66ffd9
+    
+    implement Clone interface (if you want)
     Final class
     members need to final private
     no setters
-    getter returing the clone
-    Initialize the class using constructor deep copy
+    getter returing the deep copy of memeber variable
+
+    See the implementation in org.example.javaconcepts.immutableex.Employee
 
 ### How to make Singleton class
     public class Singleton {
@@ -57,6 +64,26 @@
 
 ### Is java pass by value or ref
     Java is pass by value
+
+### == vs equals
+    == just compares value stored by variable
+    equals object specific implementation. But default Object class has implementation as: a == b
+    int a = 10; int b = 10; a==b as they both hold 10 value
+    Object a = new Object(); Object b = new Object(); a !=b , as a and b variables are holding address of object a and object b, which are different.
+
+    IMPORTANT:
+    == should ONLY be used with primitives types, and for everything else, use equals
+
+    == literally compares the value stored for the variable: String a = new String("test"); String b = new String("test"); a == b is false as a and b stores address of objects which are differnet
+    But String a = "test"; String b = "test" and a == b is true. As a and b has same memory address from string pool
+    To compare objects, user ALWAYS need to implement boolean equals(Object obj)
+
+### equals and hashCode contract
+    If obj1.equals(obj2) == true, then obj1.hashCode() == obj2.hashCode()
+    But reverse is not true, i.e if obj1.hashCode() == obj2.hashCode(), but that DOES NOT imply that obj1.equals(obj2) == true. This is because of hash collisions
+
+    Important to remember that that map.put(key, value) uses key.hashCode() internally when putting a value in bucket, 
+    so make sure that equal object get same bucket, so if user implements equals, then it is mandatory to implement hashcode() also.
 
 ### Need of Comparable and Comparator interface in Java
     For ex: CustomClass[] customClasses = new CustomClass[10];
@@ -86,22 +113,6 @@
             The functional way will eliminate the use of above interfaces, as .sort can use lamba function:
             Arrays.sort(consumers, (Consumer a, Consumer b) -> {return a.compare(b);})
 
-### == vs .equals
-    == just compares value stored by variable
-    equals object specific implementation. But default Object class has implementation as: a == b
-    int a = 10; int b = 10; a==b as they both hold 10 value
-    Object a = new Object(); Object b = new Object(); a !=b , as a and b variables are holding address of object a and object b, which are different.
-
-    IMPORTANT:
-    == should ONLY be used with primitives types, and for everything else, use equals
-
-### equals and hashCode contract
-    If obj1.equals(obj2) == true, then obj1.hashCode() == obj2.hashCode()
-    But reverse is not true, i.e if obj1.hashCode() == obj2.hashCode(), but that DOES NOT imply that obj1.equals(obj2) == true. This is because of hash collisions
-
-    Important to remember that that map.put(key, value) uses key.hashCode() internally when putting a value in bucket, so make sure that equal 
-    object get same bucket, so if user implements equals, then it is mandatory to implement hashcode() also.
-
 ### String are immutable:
     String a = "1"; String b = "1"; a == b, because both strings point to same memory location. a.equals(b) as both has same value
     They are created in cache pool.
@@ -114,12 +125,13 @@
     Kind of adds security as the function cant modify the original string,
 
 ### Static method shadowing in child class
-    If overidden method in child class is made to be static, then run time polymorphism does not work. Then child function is never called and only the base class implementation will be class. 
+    If overidden method in child class is made to be static, then run time polymorphism does not work. Then child 
+    function is never called and only the base class implementation will be class. 
     If function in child is not static, then function in child class will be called and will follow polymorphism
 
 ### Access modifier for child's overridden function.
     Child overridden function's access modifier is allowed to make it more accessible, and not vice versa.
-    For ex: protected in parent can be protected/public in child, but can be made private
+    For ex: protected in parent can be protected/public in child, but cant be made private
             public in parent can ONLY be public in child, and cant be made protected/private
 
 ### Association HASA relation
@@ -128,7 +140,7 @@
 
 ### Return type of overridden function in child can be different from parent function.
     The return type of child function can be parent class of the return type of the parent function
-    Suppose parent has String parentFunction(), then child class either have String childFunction() or Object childFunction() because object is parent of String
+    Suppose parent has String testFunc(), then child class either have String testFunc() or Object testFunc() because object is parent of String
 
 ### Exception hierarchy
     class Exception and all its subclasses (Except RuntimeException) are checked exception
@@ -155,30 +167,19 @@
             OutOfMemoryError
             VirtualMachineError
     https://stackoverflow.com/questions/26516020/try-with-resources-vs-try-catch
-    
-### From PODs to String
-    String.valueOf(int i), String.valueOf(long)
-    Integer.valueOf(String s)
 
-### Deque interface
-    Concrete class is ArrayDeque()
-    .add && .addlast :: Add at tail
-    .addFirst :: Add at head
-    .peek && peekFirst:: Returns the head without deleting
-    .peekLast:: Returns the head without deleting
-    .poll :: Return head and delete the element
-    .removeFirst :: Remove head
-    .removeLast :: Remove tail
+    Exception extends Throwable
+    IOException extends Exception BUT, NullPointerException extends RuntimeException 
+    and RuntimeException extends Exception
 
-### Sort Array
-    Arrays.sort(arr) or 
-    Arrays.sort(T[] a, int fromIndex, int toIndex, Comparator<? super T> c)
-    
-    Sort collections:
-        list.sort(Comparator<? super T> c)
+### Diff between throw and throws
+    Method use throw to raise unchecked exception from within method.
+    Throws is part of method signature. Signature can multiple exception in throws separated by commas.
+    Throw only can throw UNCHECKED exception, because if you try to throw CHECKED exception, compiler will ask you to use try/catch :)
 
 ### Constructors
-    No default constructor when user defines class constructors. If user need default (no arg) constructor, it has to be defined like other constructors.
+    No default constructor when user defines custom constructors. 
+    If user need default (no arg) constructor, it has to be defined like other constructors.
     Make constructor "Private" if user NEVER wants instance of class.
 
 ### Enums
@@ -190,27 +191,6 @@
     variable:   Once intialized, value of the variable cannot be altered. Ex: public final MyClass class1 = new MyClass(); class1 = new MyClass(); second time will throw an error
     method:     derived class CANNOT override implementation of method of parent class
     class:      class CANNOT be extended
-
-### equals() vs ==
-    == literally compares the value stored for the variable: String a = new String("test"); String b = new String("test"); a == b is false as a and b stores address of objects which are differnet
-    But String a = "test"; String b = "test" and a == b is true. As a and b has same memory address from string pool
-    To compare objects, user ALWAYS need to implement boolean equals(Object obj)
-
-### Garbage Collection
-    void func() {
-        Person p = new Person(); //p will be out of scope after func stack so it will unreachable memory in heap
-    }
-    void func2(Person p1) {
-        Person p = new Person();
-        p = p1; // heap memory earlier referrenced by p will be unreachable
-    }
-    Garbage collector run sweep and mark on the reachable memory. All the unreachable memory objects are returned to heap.
-    heap sections are divided in young and old generation heap sections. A new memory always belongs to young generation 
-    and mark/sweep happens frequently on this section. After various runs, Garbage colector identifies 
-    memories that in young generation for longer duration, and those are then moved to old generation.
-    Mark/sweep runs very less on old generation memory.
-
-    User can try to invoke the gc from code using System.gc().
 
 ### Abstract class vs interface
     //abstract class 
@@ -230,11 +210,49 @@
     Interface were also allowed to have static final variable.
     So whats the diff between abstaract class and interface? Class can implment multiple interfaces but can extend only one abstract class
 
+### Fail fast iterator vs Fail safe Iterator
+    https://www.youtube.com/watch?v=M_bBaKqukyg&t=309s
+    Fail fast
+    Any modification on collection will raise concurrent modificationException if user is iterating on collection. 
+    Because itration happens on original list. add or delete on original list will raise exception.
+    but "setting" of an element will not raise exception as the size of the collection does not change.
+    iterators from Java 1.4 Collection classes like ArrayList, HashSet, and Vector are fail fast
+
+    Fail safe
+    Iteration() return the copy of whole collection so any modification on collection does not impact anything
+    Iterators returned by concurrent collection classes like CopyOnWriteArrayList or CopyOnWriteArraySet are fail safe
+    
+### Garbage Collection
+    void func() {
+        Person p = new Person(); //p will be out of scope after func stack so it will unreachable memory in heap
+    }
+    void func2(Person p1) {
+        Person p = new Person();
+        p = p1; // heap memory earlier referrenced by p will be unreachable
+    }
+    Garbage collector run sweep and mark on the reachable memory. All the unreachable memory objects are returned to heap.
+    heap sections are divided in young and old generation heap sections. A new memory always belongs to young generation 
+    and mark/sweep happens frequently on this section. After various runs, Garbage colector identifies 
+    memories that in young generation for longer duration, and those are then moved to old generation.
+    Mark/sweep runs very less on old generation memory.
+
+    User can try to invoke the gc from code using System.gc().
+
+### JVM architecture
+    https://www.youtube.com/watch?v=QHIWkwxs0AI&ab_channel=BigDataElearning
+    Class Loader:   Bootstrap/Extension/Application class loader. 
+                    Load bootstrap files (rt.jar)
+                    Extenstion loader jre/lib/ext/*
+                    Application class loader
+    Runtime data area: Method area/ Heap/ Stack/registers space/ JNI stack
+    Execution Area: Interpreter/ jit compiler / Garbage collection
+
 ### Synchronized vs Reentrant Lock
     public synchronized void syncFunc();
     synchronized (this) {
     }
-    or some object MyObject myObject;
+    or 
+    Object myObject = new Object();
     synchronized (myObject) {
     }
     //Exclusive locks give lot of flexibility when needed.
@@ -256,15 +274,20 @@
     s.acquire();
     s.release();
 
-### JVM architecture
-    https://www.youtube.com/watch?v=QHIWkwxs0AI&ab_channel=BigDataElearning
-    Class Loader:   Bootstrap/Extension/Application class loader. 
-                    Load bootstrap files (rt.jar)
-                    Extenstion loader jre/lib/ext/*
-                    Application class loader
-    Runtime data area: Method area/ Heap/ Stack/registers space/ JNI stack
-    Execution Area: Interpreter/ jit compiler / Garbage collection
+### Class level Synchronization VS Object level Synchronization
 
+### Class level vs object level lock
+    Class level lock is when multiple objects of class in multiple threads wants to access a shared resource.
+    Class level can use:
+    synchronized around static function,
+    create static object and then synchronized(object){},
+    or synchronized(classname.class) {}
+    
+    Object level lock is needed when a single object shared across multiple threads.
+    Object level lock can use:
+    synchronized around function,
+    create object and then synchronized(object){}
+    or synchronized(this){}
 
 ### When you will use JDBC instead of ORM?
 
@@ -291,20 +314,32 @@
     var keyword
     Security enhancement
 
-
 ### Difference between Functional Interface and normal interface
+    Functional Interface
+    @FunctionalInterface
+    public interface BiFunction<T, U, R> {}
 
-### Class level Synchronization VS Object level Synchronization
+    Normal Interface
+    public intergace test {}
 
-### Class level vs object level lock
-    Class level lock is when multiple objects of class in multiple threads wants to access a shared resource.
-    Class level can use:
-    synchronized around static function,
-    create static object and then synchronized(object){},
-    or synchronized(classname.class) {}
+### From PODs to String
+    String.valueOf(int i), String.valueOf(long)
+    Integer.valueOf(String s)
+
+### Deque interface
+    Concrete class is ArrayDeque()
+    .add && .addlast :: Add at tail
+    .addFirst :: Add at head
+    .peek && peekFirst:: Returns the head without deleting
+    .peekLast:: Returns the head without deleting
+    .poll && pollFirst:: Return head and delete the element
+    .pollLast:: Return tail and delete the element
+    .removeFirst :: Remove head
+    .removeLast :: Remove tail
+
+### Sort Array
+    Arrays.sort(arr) or 
+    Arrays.sort(T[] a, int fromIndex, int toIndex, Comparator<? super T> c)
     
-    Object level lock is needed when a single object shared across multiple threads.
-    Object level lock can use:
-    synchronized around function,
-    create object and then synchronized(object){}
-    or synchronized(this){}
+    Sort collections:
+        list.sort(Comparator<? super T> c)

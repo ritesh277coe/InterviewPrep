@@ -1,5 +1,5 @@
 
-public class ImportantCommands {
+### Stream
     Map<Integer, Integer> map = new HashMap<>();
     List<Map.Entry<Integer, Integer>> l = map
             .entrySet()
@@ -26,37 +26,35 @@ public class ImportantCommands {
     }
 }
 
-#####
-Sort a string
-    public static void main(String[] args)
-    {
-        String original = "edcba";
-        char[] chars = original.toCharArray();
-        Arrays.sort(chars);
-        String sorted = new String(chars);
-        System.out.println(sorted);
+##### Sort a string
+    String original = "edcba";
+    char[] chars = original.toCharArray();
+    Arrays.sort(chars);
+    String sorted = new String(chars);
+    System.out.println(sorted);
+
+
+#### Substring
+    s = "012345678"
+    prefix of str s.subString(0, 3); //012
+    suffix of str s.subString(3); //345678
+
+#### Get stream out of string
+    String s = " test string";
+    String arr[] = s.trim.split("\\s+");
+    Arrays.stream(arr).
+    or
+    Stream.of(arr)..
+
+#### Split string using regex
+    String str = "test"
+    Stream.of(str.split(""))
+
+### Update/add new key in hashmap
+    map.put(key, map.getOrDefault(key, 0) + 1);
+
+#### TriNode
+    TrieNode {
+        Map<Character, TrieNode> m;
+        boolean isWord;
     }
-}
-
-####
-Substring
-s = "012345678"
-prefix of str s.subString(0, 3); //012
-suffix of str s.subString(3); //345678
-
-####
-Get stream out of string
-String s = " test string";
-String arr[] = s.trim.split("\\s+");
-Arrays.stream(arr).
-or
-Stream.of(arr)..
-
-String str = "test"
-Stream.of(str.split(""))
-
-####
-TrieNode {
-Map<Character, TrieNode> m;
-boolean isWord;
-}

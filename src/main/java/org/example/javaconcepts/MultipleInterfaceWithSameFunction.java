@@ -1,12 +1,11 @@
 package org.example.javaconcepts;
 
 
-public class MultipleInterfaceWithSameFunction {
-    public class Concrete implements IOne, ITwo  {
+public class MultipleInterfaceWithSameFunction implements IOne, ITwo  {
 
         @Override
         public void test() {
-            ITwo.super.test();
+            IOne.super.test();
         }
 
         @Override
@@ -18,9 +17,10 @@ public class MultipleInterfaceWithSameFunction {
         public void func2() {
             System.out.println("func2");
         }
-    }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
+            MultipleInterfaceWithSameFunction c = new MultipleInterfaceWithSameFunction();
+            c.test();
 
     }
 }
